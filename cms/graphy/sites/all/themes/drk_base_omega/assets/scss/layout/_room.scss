@@ -1,0 +1,50 @@
+.node--zaal--full {
+  margin-bottom: 30px;
+
+  h3 {
+    margin: 0;
+    @include line-height(19);
+  }
+
+  .field-label {
+    float: left;
+    margin: 0 10px 0 0;
+
+    &:after {
+      content: ": ";
+    }
+  }
+
+  .field--body {
+    margin: 20px 0;
+  }
+
+  .no-float {
+    .field-label {
+      float: none;
+      margin: 0 10px 0 0;
+      @include inline-block;
+    }
+  }
+
+  .field--capaciteit,
+  .field--faciliteiten,
+  .field--aantal-tafels,
+  .field--aantal-stoelen {
+    @include pill;
+    background-color: map-get($colors, "fifth");
+    color: map-get($colors, "third");
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+
+  .field--capaciteit {
+    font-size: #{$font_size_small}px;
+  }
+
+  .field-faciliteiten-wrapper {
+    h3 {
+      margin-bottom: 5px;
+    }
+  }
+}

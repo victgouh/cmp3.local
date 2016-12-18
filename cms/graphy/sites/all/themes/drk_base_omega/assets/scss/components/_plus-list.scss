@@ -1,0 +1,58 @@
+.plus-list {
+  margin: 0 0 5px;
+
+  .field--top-item {
+    position: relative;
+    margin: mg($plus_list, item_margin);
+
+    h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    &:first-child {
+      margin: 0;
+    }
+
+    a {
+      background-color: mg($plus_list, item_bgc);
+      padding: mg($plus_list, item_padding);
+      @include typo(mg($plus_list, item_ff), mg($plus_list, item_fsz), mg($plus_list, item_fsz), mg($plus_list, item_color));
+      text-decoration: none;
+      display: block;
+
+      &:hover {
+        background-color: mg($plus_list, item_bgc_hover);
+
+        &:after {
+          margin: mg($plus_list, item_arrow_margin);
+          @include rect(mg($plus_list, item_arrow_width), mg($plus_list, item_arrow_height));
+          @include background(image-url("svg/#{mg($plus_list, item_arrow_image)}.svg") no-repeat center center);
+
+          .no-svg & {
+            @include background(image-url("layout/#{mg($plus_list, item_arrow_image)}.png") no-repeat center center);
+          }
+        }
+      }
+
+      &:after {
+        @include rect(mg($plus_list, item_plus_width), mg($plus_list, item_plus_height));
+        @include background(image-url("svg/#{mg($plus_list, item_plus_image)}.svg") no-repeat center center);
+        @include corner(absolute, "r");
+        content: "";
+        margin: mg($plus_list, item_plus_margin);
+        display: block;
+
+        .no-svg & {
+          @include background(image-url("layout/#{mg($plus_list, item_plus_image)}.png") no-repeat center center);
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(map-get($breakpoints, "mobile")) {
+  .plus-list {
+    margin: 0;
+  }
+}

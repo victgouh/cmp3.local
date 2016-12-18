@@ -1,0 +1,135 @@
+// ====================================================================================================== //
+// TYPE - LANDING PAGE - SERVICES //
+// ====================================================================================================== //
+#popular-services {
+  @include pie-clearfix;
+  @include padborder;
+
+  &:last-child {
+    border-bottom: 0 !important;
+  }
+
+  .field--lp-services-teaser {
+    margin-bottom: 10px;
+
+    .field--lp-service {
+      .field--lijstafbeelding {
+        img {
+          min-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.map-info {
+  min-height: 250px;
+
+  > div ,
+  > div > div {
+    height: 100% !important;
+  }
+}
+
+
+#higlighted-service {
+  @include padborder;
+
+  &:last-child {
+    border-bottom: 0 !important;
+  }
+
+  .map-info {
+    height: 210px;
+  }
+
+  .contact {
+    height: 210px;
+
+    .field--lp-hl-service,
+    .contact-wrapper {
+      height: 100%;
+    }
+  }
+}
+
+#spotlight {
+  .field--spotlights {
+    @include padborder;
+
+    &:last-child {
+      border-bottom: 0 !important;
+    }
+  }
+}
+
+@include breakpoint(map-get($breakpoints, "zero") map-get($breakpoints, "mobile")) {
+  .map-info {
+    height: 250px;
+  }
+}
+
+@include breakpoint(map-get($breakpoints, "mobile")) {
+  #popular-services {
+    .field--lp-services-teaser {
+      margin-bottom: 20px;
+
+      .field--lp-service {
+        .field--lijstafbeelding {
+          img {
+            min-width: 0;
+            max-width: none;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(map-get($breakpoints, "mobile") map-get($breakpoints, "desktop")) {
+  .field--lp-services-teaser {
+    @include span(4 of map-get($susy, columns));
+
+    &:nth-of-type(3n) {
+      @include last;
+    }
+  }
+
+  .field--fc-spotlight-item,
+  .field--spotlight-teaser-item {
+    @include span(6 of map-get($susy, columns));
+
+    &:nth-of-type(2n) {
+      @include last;
+    }
+  }
+}
+
+@include breakpoint(map-get($breakpoints, "navwidth")) {
+  .node-type-landing-page-service {
+    #higlighted-service {
+      .service-hours,
+      .contact,
+      .map-info {
+        @include span(4 of map-get($susy, columns));
+      }
+
+      .map-info {
+        @include last;
+      }
+    }
+  }
+}
+
+@include breakpoint(map-get($breakpoints, "desktop")) {
+  .field--lp-services-teaser,
+  .field--fc-spotlight-item,
+  .field--spotlight-teaser-item {
+    @include span(3 of map-get($susy, columns));
+
+    &:nth-of-type(4n) {
+      @include last;
+    }
+  }
+}

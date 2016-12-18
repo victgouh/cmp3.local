@@ -1,0 +1,32 @@
+.service-hours {
+  h4 {
+    text-align: right;
+  }
+
+  .field--counters {
+    @include container;
+    @include pie-clearfix;
+    padding: 0 0 15px;
+    @include typo($body_font_family, $font_size_small, $font_size_small, map-get($colors, "second"));
+
+    .title {
+      @include span(8 of 12);
+    }
+
+    .hours-info {
+      @include span(4 of 12);
+      @include last;
+      text-align: right;
+
+      .openinghour.today {
+        width: 100%;
+      }
+    }
+
+    .openinghour {
+      li {
+        list-style-type: none;
+      }
+    }
+  }
+}

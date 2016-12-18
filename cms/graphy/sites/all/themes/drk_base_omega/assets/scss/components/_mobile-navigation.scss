@@ -1,0 +1,169 @@
+.mobile-nav-wrapper {
+  display: block;
+  text-align: right;
+
+  .hamburger {
+    @include typo($body_font_family, $font_size_large, $font_size_large, mg($main_nav, li_a_color));
+    @include inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    padding: mg($mobile_nav, hamb_padding);
+    text-transform: uppercase;
+
+    i {
+      @include rect(mg($mobile_nav, hamb_width), mg($mobile_nav, hamb_height));
+      @include background(image-url("svg/#{mg($mobile_nav, hamb_image)}.svg") no-repeat center center);
+      @include inline-block;
+      position: absolute;
+      padding: 0 10px;
+      margin: mg($mobile_nav, hamb_margin);
+
+      .no-svg & {
+        @include background(image-url("layout/#{mg($mobile_nav, hamb_image)}.png") no-repeat center center);
+      }
+    }
+  }
+}
+
+.l-region--mobile-navigation {
+  @include ceaser-transition(all, $fast_speed, $easeOutExpo);
+  @include box-shadow(0 0 10px rgba($black, .4));
+  display: block;
+  position: fixed;
+  right: -85%;
+  top: 0;
+  width: 80%;
+  z-index: 202;
+  background-color: mg($mobile_nav, mobile_main_background);
+  color: $white;
+  height: 100%;
+  overflow-y: scroll;
+
+  &.open {
+    right: 0;
+  }
+
+  .menu {
+    padding: 0;
+    width: 100%;
+    position: relative;
+
+    &.service {
+      border-top: 1px solid rgba($white, .5);
+
+      a,
+      span {
+        padding: 10px 20px;
+        font-size: $font_size_large - 5px;
+        background-color: darken(mg($mobile_nav, mobile_secondary_background), 10%);
+        font-family: $headings_font_family;
+
+        &.active,
+        &.active-trail {
+          background-color: darken(map-get($colors, first), 20%);
+        }
+      }
+    }
+
+    li {
+      list-style-type: none;
+      width: 100%;
+
+      &.expanded {
+        > a,
+        > span {
+          position: relative;
+
+          &:after {
+            content: "";
+            @include ceaser-transition(transform, $fast_speed, $easeOutExpo);
+            @include rect(mg($accordeon, element_title_arrowdown_width), mg($accordeon, element_title_arrowdown_height));
+            @include background(image-url("svg/small-arrow-right-icon-bottom.svg") no-repeat center center);
+            position: absolute;
+            right: 0;
+            top: 50%;
+            margin: -(mg($accordeon, element_title_arrowdown_height))/2 #{$large}px 0 #{$large}px;
+
+            .no-svg & {
+              @include background(image-url("layout/small-arrow-right-icon-bottom.png") no-repeat center center);
+            }
+          }
+        }
+
+        &.open {
+          > a,
+          > span {
+            &:after {
+              display: none;
+            }
+          }
+
+          > .menu {
+            height: auto;
+          }
+        }
+      }
+
+      a,
+      span {
+        padding: 20px;
+        @include inline-block;
+        @include box-sizing(border-box);
+        @include square(100%);
+        @include typo($body_font_family, $font_size_large, $font_size_large, $white);
+        text-decoration: none;
+        border-bottom: 1px solid rgba($white, .5);
+
+        &.active,
+        &.active-trail {
+          background-color: darken(map-get($colors, first), 20%);
+        }
+      }
+
+
+      .menu {
+        height: 0;
+        overflow: hidden;
+
+        li {
+          a,
+          span {
+            padding: 15px 15px 15px 30px;
+            background-color: lighten(map-get($mobile_nav, mobile_expanded_background), 10%);
+
+            &.active,
+            &.active-trail {
+              background-color: darken(map-get($mobile_nav, mobile_expanded_background), 20%);
+            }
+          }
+
+          .menu {
+            li {
+              a,
+              span {
+                @include typo($body_font_family, $font_size_base, $font_size_base, $white);
+                padding: 10px 10px 10px 40px;
+                background-color: lighten(map-get($colors, first), 15%);
+
+                &.active,
+                &.active-trail {
+                  background-color: darken(map-get($colors, first), 20%);
+                }
+              }
+
+              .menu {
+                li {
+                  a,
+                  span {
+                    @include typo($body_font_family, $font_size_small, $font_size_small, $white);
+                    padding: 10px 10px 10px 45px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

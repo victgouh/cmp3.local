@@ -1,0 +1,70 @@
+.breadcrumb {
+  position: relative;
+  margin: mg($breadcrumb, margin);
+  @include clearfix;
+  @include typo($body_font_family, $font_size_extra_small, $font_size_extra_small, mg($breadcrumb, color));
+  line-height: 1rem !important;
+
+  a,
+  span {
+    @include typo($body_font_family, $font_size_extra_small, $font_size_extra_small, mg($breadcrumb, color));
+    margin: mg($breadcrumb, link_margin);
+    // float: left;
+  }
+
+  a {
+    position: relative;
+
+    &:after {
+      pointer-events: none;
+      content: "";
+      position: absolute;
+      left: 100%;
+      top: 50%;
+      text-decoration: none;
+      margin: -(mg($breadcrumb, link_arrow_height))/2 5px 0 5px;
+      @include rect(mg($breadcrumb, link_arrow_width), mg($breadcrumb, link_arrow_height));
+      @include background(image-url("svg/#{mg($breadcrumb, link_arrow_image)}.svg") no-repeat center center);
+
+      .no-svg & {
+        @include background(image-url("layout/#{mg($breadcrumb, link_arrow_image)}.png") no-repeat center center);
+      }
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.page-agenda-search {
+  .breadcrumb {
+    position: relative;
+    margin: mg($breadcrumb, margin);
+    @include clearfix;
+    @include typo($body_font_family, $font_size_extra_small, $font_size_extra_small, mg($breadcrumb, color));
+    line-height: 1rem !important;
+
+    a,
+    span {
+      @include typo($body_font_family, $font_size_extra_small, $font_size_extra_small, mg($breadcrumb, color));
+      margin: 0 15px;
+    }
+
+    span:before {
+      pointer-events: none;
+      content: "";
+      position: absolute;
+      // left: 30px;
+      top: 50%;
+      text-decoration: none;
+      margin: -2.5px 5px 0 -9px;
+      @include rect(mg($breadcrumb, link_arrow_width), mg($breadcrumb, link_arrow_height));
+      @include background(image-url("svg/#{mg($breadcrumb, link_arrow_image)}.svg") no-repeat center center);
+
+      .no-svg & {
+        @include background(image-url("layout/#{mg($breadcrumb, link_arrow_image)}.png") no-repeat center center);
+      }
+    }
+  }
+}

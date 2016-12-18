@@ -1,0 +1,79 @@
+.field--spotlight-teaser-item,
+.field--lp-spotlights-visual {
+  border: mg($spotlight, border);
+  @include box-sizing(border-box);
+  margin-bottom: mg($spotlight, margin_bottom);
+
+  h3 {
+    margin: mg($spotlight, h3_margin);
+
+    a {
+      display: block;
+      vertical-align: top;
+      text-decoration: none;
+      @include typo(mg($spotlight, h3_ff), mg($spotlight, h3_fsz), mg($spotlight, h3_fsz), mg($spotlight, h3_color));
+    }
+  }
+
+  .bgc-color-second {
+    h3 {
+      a {
+        color: $white;
+      }
+    }
+  }
+
+  figure {
+    position: relative;
+  }
+
+  .field--lijstafbeelding {
+    position: relative;
+
+    img {
+      max-width: none;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  .date-top-left {
+    .field--datum {
+      @include corner(absolute, "tl");
+    }
+  }
+
+  .title-icon {
+    h3 {
+      position: relative;
+
+      a {
+        margin: 0 10px 0 0;
+      }
+
+      &:after {
+        @include rect(mg($spotlight, after_width), mg($spotlight, after_height));
+        @include background(image-url("svg/#{mg($spotlight, after_image)}.svg") no-repeat center center);
+        @include corner(absolute, "r");
+        content: "";
+        margin: mg($spotlight, after_margin);
+        display: block;
+
+        .no-svg & {
+          @include background(image-url("layout/#{mg($spotlight, after_image)}.png") no-repeat center center);
+        }
+      }
+    }
+  }
+
+  .no-date {
+    h3 {
+      margin-top: 22px;
+    }
+  }
+
+  .shortcut {
+    padding: 15px;
+  }
+}

@@ -1,0 +1,57 @@
+.messages {
+  margin: 20px;
+  background: none;
+  border: 0;
+  padding: 20px;
+  position: relative;
+
+  a {
+    @include typo(font-family-stack($base_font_family, "regular", $base_font_stack), $border_radius_base, $border_radius_base, $white);
+
+    &.close {
+      @include inline-block;
+      @include corner(absolute, "tr");
+      margin: 15px;
+    }
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+
+    li {
+      list-style-type: none;
+      @include typo(font-family-stack($base_font_family, "regular", $base_font_stack), $border_radius_base, $border_radius_base, $white);
+      margin: 0 0 4px;
+
+      i {
+        @include inline-block;
+        margin: 0 5px 0 0;
+      }
+    }
+  }
+
+  &.messages--error {
+    background-color: mg($colors, danger);
+  }
+
+  tr.error {
+    background-color: mg($colors, danger);
+  }
+
+  &.messages--status {
+    background-color: mg($colors, info);
+  }
+
+  tr.ok {
+    background-color: mg($colors, info);
+  }
+
+  &.messages--warning {
+    background-color: mg($colors, warning);
+  }
+
+  tr.warning {
+    background-color: mg($colors, warning);
+  }
+}

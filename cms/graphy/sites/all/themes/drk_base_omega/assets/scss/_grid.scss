@@ -1,0 +1,86 @@
+// ====================================================================================================== //
+// RESPONSIVE GRID CLASSES //
+// ====================================================================================================== //
+$cols: map-get($susy, columns);
+
+@for $i from 1 through $cols {
+  .w#{$i} {
+    @include span($i of $cols);
+  }
+}
+
+$grids: (1, 2, 3, 4, 6);
+@each $i in $grids {
+  .grid-#{$i} {
+    @include grid($i);
+  }
+}
+
+.latest {
+  @include last;
+}
+
+.container {
+  @include container;
+}
+
+.clearfix {
+  @include clearfix;
+}
+
+.pie-clearfix {
+  @include pie-clearfix;
+}
+
+
+[class^="grid"] {
+  &.picture-grid {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@include breakpoint(map-get($breakpoints, "mobile") map-get($breakpoints, "tablet")) {
+  .grid-2 {
+    > div {
+      @include span(6 of map-get($susy, columns));
+
+      &:nth-child(2n) {
+        @include last;
+      }
+    }
+  }
+
+  .grid-3 {
+    > div {
+      @include span(4 of map-get($susy, columns));
+
+      &:nth-child(3n) {
+        @include last;
+      }
+    }
+  }
+
+  .grid-4 {
+    > div {
+      @include span(6 of map-get($susy, columns));
+
+      &:nth-child(2n) {
+        @include last;
+      }
+    }
+  }
+}
+
+@include breakpoint(map-get($breakpoints, "tablet")) {
+  .grid-4 {
+    > div {
+      @include span(3 of map-get($susy, columns));
+
+      &:nth-child(4n) {
+        @include last;
+      }
+    }
+  }
+}

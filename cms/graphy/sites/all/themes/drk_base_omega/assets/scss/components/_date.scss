@@ -1,0 +1,57 @@
+.field--datum {
+  position: relative;
+
+  .date-icon & {
+    &:before {
+      font-family: "FontAwesome";
+      content: mg($date, before_icon);
+      @include inline-block;
+      margin: 0 0 5px;
+    }
+  }
+
+  .dates .sep {
+    @include typo(mg($date, ff), mg($date, fsz), mg($date, fsz) + mg($date, day_fs_lh_diff), mg($date, day_color));
+  }
+
+  .date {
+    @include inline-block;
+    @include typo(mg($date, ff), mg($date, fsz), mg($date, fsz) + mg($date, day_fs_lh_diff), mg($date, day_color));
+    width: mg($date, width);
+
+    &.date-1 {
+      margin: 0 #{$med}px 0 0;
+    }
+
+    &.date-2 {
+      margin: 0 0 0 #{$med}px;
+    }
+
+    .month {
+      text-align: center;
+      text-transform: uppercase;
+      background-color: mg($date, month_bgc);
+
+      small {
+        @include typo($body_font_family, mg($date, fsz_small), mg($date, fsz_small), mg($date, month_color));
+      }
+    }
+
+    .day {
+      padding: mg($date, day_padding);
+      background-color: mg($date, day_bgc);
+      text-align: center;
+    }
+  }
+
+  .date-seperator {
+    @include rect(mg($date, sep_width), mg($date, sep_height));
+    @include background(image-url("svg/#{mg($date, sep_image)}.svg") no-repeat center center);
+    @include inline-block;
+    position: relative;
+
+    .no-svg & {
+      @include background(image-url("layout/#{mg($date, sep_image)}.png") no-repeat center center);
+    }
+  }
+}

@@ -1,0 +1,306 @@
+#banner {
+  position: relative;
+  display: block;
+
+  > .container {
+    width: auto;
+    margin: 0;
+    height: 100%;
+  }
+
+
+  &.sitewidth {
+    .accordeon {
+      margin: 0 15px 20px;
+    }
+
+    .field--spotlight-background {
+      display: none;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      overflow: hidden;
+
+
+      img {
+        height: 310px;
+        width: 1020px;
+        min-width: 0;
+        max-width: none;
+        vertical-align: middle;
+        -ms-interpolation-mode: bicubic;
+      }
+    }
+
+    .banner-title {
+      position: relative;
+      min-height: 310px;
+
+
+      .field--spotlight-background {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      .field--spotlight-item {
+        position: relative;
+        margin: 0 15px;
+      }
+    }
+  }
+
+  &.fullwidth {
+    .accordeon {
+      margin: 0 15px 20px;
+    }
+
+    .field--spotlight-background {
+      display: none;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      overflow: hidden;
+
+
+      img {
+        height: 100%;
+        width: auto;
+        max-width: none;
+        vertical-align: middle;
+        -ms-interpolation-mode: bicubic;
+      }
+    }
+
+    .banner-title {
+      position: relative;
+      min-height: 310px;
+
+
+      .field--spotlight-background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      .field--spotlight-item {
+        position: relative;
+        margin: 0 15px;
+      }
+    }
+  }
+
+  &.small {
+    .field--spotlight-background {
+      display: none;
+    }
+
+
+    @include breakpoint(map-get($breakpoints, "zero") map-get($breakpoints, "mobile")) {
+      &.align-left {
+        .field--spotlight-background {
+          min-height: 260px;
+
+          img {
+            position: absolute;
+            left: 0;
+          }
+        }
+      }
+
+      &.align-center {
+        .field--spotlight-background {
+          min-height: 260px;
+
+          img {
+            position: absolute;
+            left: 50%;
+            margin: 0 0 0 -510px;
+          }
+        }
+      }
+
+      &.align-right {
+        .field--spotlight-background {
+          min-height: 260px;
+
+          img {
+            position: absolute;
+            right: 0;
+          }
+        }
+      }
+
+      .accordeon {
+        z-index: 5;
+        position: relative;
+      }
+
+      .banner-title {
+        z-index: 4;
+        position: relative;
+      }
+    }
+
+
+    > .container {
+      overflow: hidden;
+    }
+
+    .banner-title {
+      .field--spotlight-background {
+        display: block;
+
+        img {
+          width: auto;
+          max-width: none;
+          height: 100%;
+        }
+
+        @if mg($layout, banner_img_shade) == true {
+          &:after {
+            content: "";
+            @include corner(absolute, "tl");
+            display: block;
+            @include square(100%);
+            @include background-image(linear-gradient(rgba($black, 0) 50%, rgba($black, .4) 100%));
+          }
+        }
+      }
+
+      .field--spotlight-item {
+        position: absolute;
+        bottom: 0;
+
+        .field--datum {
+          padding: mg($layout, banner_date_padding);
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(map-get($breakpoints, "mobile")) {
+  #banner {
+    &.sitewidth {
+      .field--spotlight-background {
+        display: none;
+      }
+
+      .banner-title {
+        .field--spotlight-background {
+          display: block;
+        }
+      }
+    }
+
+    &.small {
+      &.align-left {
+        .field--spotlight-background {
+          position: absolute;
+          left: 0;
+        }
+      }
+
+      &.align-center {
+        .field--spotlight-background {
+          position: absolute;
+          left: 50%;
+          margin: 0 0 0 -510px;
+        }
+      }
+
+      &.align-right {
+        .field--spotlight-background {
+          position: absolute;
+          right: 0;
+        }
+      }
+
+      .banner-title {
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+
+        .field--spotlight-background {
+          position: absolute;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(map-get($breakpoints, "mobile") 1020px) {
+  #banner {
+    &.fullwidth {
+      .field--spotlight-background {
+        img {
+          height: 310px;
+          width: 1020px;
+          min-width: 0;
+        }
+      }
+
+      .banner-title {
+        .field--spotlight-background {
+          display: none;
+        }
+      }
+    }
+
+    &.small {
+      .field--spotlight-background {
+        display: none;
+      }
+
+      .banner-title {
+        .field--spotlight-background {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(max-width 1020px) {
+  #banner {
+    &.fullwidth,
+    &.sitewidth {
+      &.align-left {
+        .field--spotlight-background {
+          img {
+            position: absolute;
+            left: 0;
+          }
+        }
+      }
+
+      &.align-center {
+        .field--spotlight-background {
+          img {
+            position: absolute;
+            left: 50%;
+            margin: 0 0 0 -510px;
+          }
+        }
+      }
+
+      &.align-right {
+        .field--spotlight-background {
+          img {
+            position: absolute;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+

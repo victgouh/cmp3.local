@@ -1,0 +1,29 @@
+.block--menu-menu-service-menu .menu {
+  @include cleanbox;
+
+  li {
+    float: right;
+    list-style-type: none;
+    border-left: mg($second_nav, item_border);
+    padding: mg($second_nav, item_padding);
+
+    &.first {
+      padding: mg($second_nav, first_item_padding);
+    }
+
+    &.last {
+      border-left: 0;
+    }
+
+    a {
+      @include typo($body_font_family, mg($second_nav, item_font_size), mg($second_nav, item_font_size), mg($second_nav, item_color));
+      display: inherit;
+      text-decoration: mg($second_nav, item_text_decoration);
+      text-transform: mg($second_nav, item_text_transform);
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

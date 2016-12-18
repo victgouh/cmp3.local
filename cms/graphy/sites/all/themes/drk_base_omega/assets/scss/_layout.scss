@@ -1,0 +1,447 @@
+// ====================================================================================================== //
+// LAYOUT GENERAL //
+// ====================================================================================================== //
+
+//TO BE REMOVED !!!!!
+.block .block__title,
+#block-views-caroussel-block,
+.action-links,
+.field-collection-view-links {
+  display: none;
+}
+
+.block--feature-drk7-common-common-login,
+.block--menu-menu-service-menu {
+  float: right;
+}
+
+.l-region--secondary-navigation {
+  @include pie-clearfix;
+}
+
+.no-hover.logo-and-nav .menu-name-main-menu > .menu > li {
+  &:hover {
+    &:after {
+      height: 0;
+    }
+  }
+}
+
+.form-actions {
+  float: right;
+}
+
+.l-region--content-bottom {
+  @include center;
+}
+
+.content-wrapper {
+  @include pie-clearfix;
+
+  #mid {
+    margin-bottom: 25px;
+
+    section {
+      footer {
+        margin-top: 25px;
+      }
+    }
+  }
+}
+
+// HEADER
+#main {
+  position: relative;
+
+  &:after {
+    display: mg($layout, logo_line_display);
+    content: "";
+    height: 1px;
+    width: 100%;
+    background-color: mg($layout, logo_line_color);
+    position: absolute;
+    left: 0;
+    top: mg($layout, logo_line_top_mobile);
+  }
+
+  > header {
+    height: mg($layout, header_height_mobile);
+    position: relative;
+    margin: 0 $mobile_margin;
+
+    .logo-and-nav {
+      position: relative;
+      height: inherit;
+      width: 100%;
+      bottom: 0;
+
+      .entity {
+        position: absolute;
+        bottom: mg($layout, logo_bottom_mobile);
+      }
+
+      .mobile-nav-wrapper {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+
+      .l-region--main-navigation {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+
+        &.latest {
+          @include last;
+        }
+
+        .menu-block-wrapper {
+          .menu {
+            li {
+              padding: mg($layout, main_nav_li_padding);
+            }
+          }
+        }
+      }
+    }
+
+    .secondairy-and-account {
+      position: absolute;
+      right: 0;
+      bottom: mg($layout, secondary_nav_bottom_mobile);
+      z-index: 20;
+    }
+  }
+}
+
+//FOOTER
+.l-region--footer {
+  text-align: center;
+  padding: mg($footer, padding);
+  margin: 0 $mobile_margin;
+  border-top: 1px solid $border_colors;
+
+  .node-type-homepage & {
+    border-top: 0;
+  }
+
+  p {
+    margin: 0;
+    @include typo(font-family-stack($base_font_family, "regular", $base_font_stack), $font_size_small, $font_size_small, mg($footer, color));
+
+    a {
+      color: mg($footer, link_color);
+    }
+  }
+}
+
+.separator {
+  height: 5px;
+  background-color: map-get($colors, "first");
+  width: 100%;
+  display: block;
+}
+
+
+@include breakpoint(map-get($breakpoints, "mobile")) {
+  // WHEN THERE IS A SECONDAIRY NAV PRESENT HIDE THE SEPARATOR
+  .l-region--secondary-navigation {
+    + .separator {
+      display: none;
+    }
+  }
+
+  .side-bar-right {
+    @include span(3 of map-get($susy, columns));
+    @include last;
+
+    ~ #mid {
+      @include span(9 of map-get($susy, columns));
+    }
+  }
+
+  .has-bottom .mid-wrapper {
+    @include span(9 of map-get($susy, columns));
+
+    ~ .l-region--content-bottom {
+      @include span(3 of map-get($susy, columns));
+      @include last;
+    }
+  }
+}
+
+
+#page-title {
+  margin: 0 0 20px;
+}
+
+#body-content {
+  @include padborder;
+}
+
+.node-unpublished {
+  background-color: $white;
+}
+
+.block--feature-drk7-common-common-login {
+  position: mg($layout, account_position);
+  top: mg($layout, account_top);
+  right: mg($layout, account_right);
+  width: mg($layout, account_width);
+}
+
+// .not-logged-in .open-tabs {
+//   display: none;
+// }
+
+// .node--full,
+// .node--full .node__content {
+//   :last-child {
+//     border-bottom: 0 !important;
+
+//     > div {
+//       :last-child {
+//         border-bottom: 0 !important;
+//       }
+//     }
+//   }
+// }
+
+// MIN MAX
+@include breakpoint(map-get($breakpoints, "zero") map-get($breakpoints, "mobile")) {
+  .centered {
+    margin: 0 $mobile_margin;
+    max-width: 100%;
+  }
+
+  #banner {
+    .w3 {
+      @include span(12 of map-get($susy, columns));
+    }
+
+    .w9 {
+      @include span(12 of map-get($susy, columns));
+    }
+  }
+
+  #main > header {
+    margin: 0 15px;
+
+    .secondairy-and-account {
+      display: none;
+    }
+  }
+}
+
+
+// MIN
+@include breakpoint(map-get($breakpoints, "mobile")) {
+  .l-region--footer {
+    margin: 0;
+  }
+
+  .l-region--main-navigation,
+  .menu-level-2 {
+    display: block;
+  }
+
+  .mobile-nav-wrapper,
+  .l-region--mobile-navigation {
+    display: none;
+  }
+
+  #main {
+    &:after {
+      top: mg($layout, logo_line_top_desktop);
+    }
+  }
+
+  #main > header {
+    height: mg($layout, header_height_desktop);
+
+    .logo-and-nav .entity {
+      bottom: mg($layout, logo_bottom_desktop);
+    }
+
+    .l-region--main-navigation {
+      @include span(mg($layout, main_tablet_nav_width) of map-get($susy, columns));
+    }
+
+    .secondairy-and-account {
+      bottom: mg($layout, secondary_nav_bottom_desktop);
+    }
+  }
+}
+
+// MIN
+@include breakpoint(map-get($breakpoints, "navwidth")) {
+  .block--search-form {
+    width: mg($main_search, width);
+  }
+
+  #main > header {
+    .logo-and-nav .entity {
+      bottom: mg($layout, logo_bottom_desktop);
+      @include span(3 of map-get($susy, columns));
+    }
+
+    .l-region--main-navigation {
+      @include span(mg($layout, main_desktop_nav_width) of map-get($susy, columns));
+    }
+  }
+}
+
+// MIN
+@include breakpoint(map-get($breakpoints, "tablet")) {
+  #main > header {
+    .logo-and-nav .entity {
+      @include span(3 of map-get($susy, columns));
+    }
+
+    .l-region--main-navigation {
+      @include span(mg($layout, main_desktop_nav_width) of map-get($susy, columns));
+    }
+  }
+}
+
+// MIN
+@include breakpoint(map-get($breakpoints, "desktop")) {
+  #main {
+    &:after {
+      top: mg($layout, logo_line_top_desktop_940);
+    }
+  }
+
+  #main > header {
+    height: mg($layout, header_height_desktop_940);
+    margin: 0 auto;
+
+    .logo-and-nav .entity {
+      bottom: mg($layout, logo_bottom_desktop_940);
+    }
+
+    .secondairy-and-account {
+      bottom: mg($layout, secondary_nav_bottom_desktop_940);
+    }
+  }
+}
+
+.company-node-form .tabledrag-toggle-weight-wrapper,
+.company-node-form #field-company-social-values thead,
+.company-node-form #field-company-social-values .tabledrag-handle {
+  display: none;
+}
+
+// Adding Facebook - Twitter - Print icon
+.company-social ul {
+  padding: 0 0 20px;
+  margin: 0;
+  overflow: hidden;
+
+  li {
+    display: block;
+    float: left;
+    margin: 0 4px 0 0;
+
+    a {
+      vertical-align: middle;
+    }
+
+    .facebook,
+    .twitter,
+    .google,
+    .instagram,
+    .pinterest,
+    .linkedin {
+      @include squish-text();
+
+      &:before {
+        font-size: #{$font_size_base * 1.5}px;
+        line-height: #{$font_size_base * 1.5}px;
+      }
+
+      &:hover:before {
+        color: map-get($colors, second);
+      }
+    }
+  }
+}
+
+li .facebook,
+li .twitter,
+li .google,
+li .linkedin,
+li .instagram,
+li .pinterest,
+.print a {
+  &:before {
+    @include inline-block;
+    text-decoration: none;
+    font-family: "FontAwesome";
+    color: map-get($colors, first);
+  }
+}
+
+.facebook:before {
+  content: "\f082";
+}
+
+a.facebook[target="_blank"]:after {
+  content: none;
+}
+
+.twitter:before {
+  content: "\f081";
+}
+
+a.twitter[target="_blank"]:after {
+  content: none;
+}
+
+.google:before {
+  content: "\f0d4";
+}
+
+a.google[target="_blank"]:after {
+  content: none;
+}
+
+.linkedin:before {
+  content: "\f08c";
+}
+
+a.linkedin[target="_blank"]:after {
+  content: none;
+}
+
+.pinterest:before {
+  content: "\f0d2";
+}
+
+a.pinterest[target="_blank"]:after {
+  content: none;
+}
+
+.instagram:before {
+  content: "\f16d";
+}
+
+a.instagram[target="_blank"]:after {
+  content: none;
+}
+
+.print {
+  clear: both;
+
+  a:before {
+    margin: 0 4px 0 0;
+    content: "\f02f";
+    font-size: #{$font_size_base - 5}px;
+    line-height: #{$font_size_base - 5}px;
+  }
+}
+
+.node--company .print + div {
+  clear: left;
+  margin-top: 20px;
+}

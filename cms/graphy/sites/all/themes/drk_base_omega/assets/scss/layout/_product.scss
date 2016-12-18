@@ -1,0 +1,17 @@
+.node--product--full {
+  h3 {
+    margin: #{$font_size_h3}px 0;
+  }
+
+  @include breakpoint(map-get($breakpoints, "mobile")) {
+    .contact,
+    .map-info {
+      margin-bottom: 0;
+      @include span(6 of map-get($susy, columns));
+    }
+
+    .map-info {
+      @include last;
+    }
+  }
+}

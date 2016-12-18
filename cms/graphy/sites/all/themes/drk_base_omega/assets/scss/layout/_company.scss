@@ -1,0 +1,85 @@
+.node-type-company {
+  .w6 {
+    @include breakpoint(map-get($breakpoints, "zero") map-get($breakpoints, "tablet")) {
+      @include span(12 of map-get($susy, "columns"));
+    }
+  }
+
+  h3 {
+    margin: 16px 0 0;
+  }
+
+  #page-title {
+    margin: 0;
+  }
+
+  .company-map,
+  .company-map > div {
+    width: 100% !important;
+    height: 300px !important;
+  }
+
+  .company-map {
+    margin: 20px 0;
+  }
+
+  .company-wrapper {
+    @include box-sizing("border-box");
+    padding: 5px;
+    background-color: #F6F6F6;
+    margin: 0 0 10px;
+  }
+
+  .adress {
+    @include typo(font-family-stack($base_font_family, "bold", $base_font_stack), 14, 14, map-get($colors, "first"));
+  }
+
+  .activities {
+    .m5 {
+      margin: 0;
+      line-height: 1.2rem;
+
+      &:first-child {
+        margin: 0;
+        line-height: 1.2rem;
+      }
+    }
+  }
+
+  .company-logo .vcard {
+    @include inline-block;
+    @include background(image-url("layout/vcard.png") no-repeat center bottom);
+    @include rect(45px, 32px);
+    @include hide-text;
+    display: block;
+    float: right;
+  }
+
+  #company-hours {
+    > div {
+      border-bottom: 1px solid #CCC;
+      padding: 10px 0;
+    }
+
+    > div:last-child {
+      border-bottom: 0;
+    }
+
+    .day-label {
+      @include span(3 of map-get($susy, columns));
+      color: map-get($colors, "first");
+    }
+
+    .day-info {
+      @include span(6 of map-get($susy, columns));
+    }
+  }
+
+  .l-region--content-bottom .block {
+    margin-top: 1em;
+  }
+
+  #block-menu-menu-bedrijvengids h2 {
+    display: none;
+  }
+}

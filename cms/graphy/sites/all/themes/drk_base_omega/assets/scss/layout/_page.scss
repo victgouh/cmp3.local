@@ -1,0 +1,39 @@
+// ====================================================================================================== //
+// TYPE - PAGE
+// ====================================================================================================== //
+.node--pagina--full {
+  .field--top-image {
+    margin: 0 0 20px;
+  }
+
+  .field--fotoalbum {
+    @include padborder;
+
+    ul {
+      @include container;
+    }
+  }
+
+  @include breakpoint(map-get($breakpoints, "mobile")) {
+    .contact,
+    .map-info {
+      margin-bottom: 0;
+      @include span(6 of map-get($susy, columns));
+    }
+
+    .map-info {
+      @include last;
+    }
+  }
+
+  @include breakpoint(map-get($breakpoints, "desktop")) {
+    .contact,
+    .map-info {
+      @include span(6 of map-get($susy, columns));
+    }
+
+    .map-info {
+      margin-right: 0;
+    }
+  }
+}

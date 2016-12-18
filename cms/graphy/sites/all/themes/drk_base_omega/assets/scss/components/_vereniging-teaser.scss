@@ -1,0 +1,19 @@
+.teaser-vereniging {
+  margin: 0 0 20px;
+
+  h3 {
+    margin: 0 0 3px;
+  }
+
+  .inline {
+    display: inline;
+  }
+
+  .more {
+    float: right;
+
+    a {
+      color: map-get($colors, "second");
+    }
+  }
+}

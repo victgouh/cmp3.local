@@ -1,0 +1,73 @@
+.button,
+button,
+input[type="submit"] {
+  @include border-radius(0);
+  @include box-sizing(border-box);
+  @include inline-block;
+  @include typo($body_font_family, $font_size_base, $font_size_base, $white);
+  webkit-appearance: none;
+  border: 0;
+  padding: 20px;
+  background-color: map-get($colors, "second");
+  margin: 10px 0;
+  text-decoration: none;
+
+  &:hover {
+    background-color: map-get($colors, "first");
+  }
+
+  &:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 2px map-get($colors, "second");
+  }
+
+  &[disabled] {
+    background-color: mg($colors, "third");
+  }
+}
+
+.previous_button {
+  @include border-radius(0);
+  @include box-sizing(border-box);
+  @include inline-block;
+  @include typo($body_font_family, $font_size_base, $font_size_base, $white);
+  webkit-appearance: none;
+  border: 0;
+  padding: 20px;
+  background-color: map-get($colors, "second");
+  margin: 10px 0;
+  text-decoration: none;
+
+  &:hover {
+    background-color: darken(map-get($colors, "second"), 10%);
+  }
+
+  &:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 2px darken(map-get($colors, "second"), 10%);;
+  }
+}
+
+
+.next_button {
+  float: right;
+  @include border-radius(0);
+  @include box-sizing(border-box);
+  @include inline-block;
+  @include typo($body_font_family, $font_size_base, $font_size_base, $white);
+  webkit-appearance: none;
+  border: 0;
+  padding: 20px;
+  background-color: map-get($colors, "first");
+  margin: 10px 0;
+  text-decoration: none;
+
+  &:hover {
+    background-color: darken(map-get($colors, "first"), 10%);
+  }
+
+  &:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 2px darken(map-get($colors, "first"), 10%);;
+  }
+}

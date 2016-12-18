@@ -1,0 +1,36 @@
+.banner-title {
+  // padding: 16px 0 0;
+
+  h2 {
+    @include inline-block;
+    @include typo(mg($banner_title, ff), $font_size_h1_banner_small, $font_size_h1_banner_small, mg($banner_title, color));
+    background-color: mg($banner_title, bgc);
+    margin: 15px 0 0;
+    text-transform: mg($banner_title, tt);
+
+    @if (mg($banner_title, bgc) == transparent) {
+      margin: mg($banner_title, padding);
+    }
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: mg($banner_title, color);
+      font-family: mg($banner_title, ff);
+
+      @if (mg($banner_title, bgc) != transparent) {
+        padding: mg($banner_title, padding);
+      }
+    }
+  }
+}
+
+@include breakpoint(map-get($breakpoints, "navwidth")) {
+  .banner-title {
+    h2 {
+      @include typo(mg($banner_title, ff), $font_size_h1_banner, $font_size_h1_banner - mg($banner_title, fs_lh_diff), mg($banner_title, color));
+    }
+  }
+}
+
+

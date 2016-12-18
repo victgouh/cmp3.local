@@ -1,0 +1,75 @@
+.page-adressen {
+  #mid > section {
+    @include clearfix;
+  }
+
+  @include breakpoint(map-get($breakpoints, "mobile")) {
+    .views-row {
+      @include span(4 of map-get($susy, columns));
+
+      &:nth-child(3n) {
+        @include last;
+      }
+    }
+  }
+
+  .views-row {
+    background-color: #F6F6F6;
+    margin-bottom: 20px;
+    padding: 5px;
+    @include box-sizing;
+
+    .views-field-title {
+      margin: 10px 0 15px;
+    }
+
+    .views-field-field-e-mailadres {
+      margin-bottom: 20px;
+
+      a {
+        word-break: break-all;
+        padding: 0 5px 0 20px;
+
+        &:before {
+          position: absolute;
+          left: 3px;
+        }
+      }
+    }
+
+    .views-field-field-telefoon {
+      margin: 5px 0;
+
+      span {
+        float: left;
+        margin: 0 5px 0 0;
+      }
+    }
+
+    .views-field-field-lijstafbeelding img {
+      width: 100%;
+    }
+  }
+
+  [class$="navigator"] {
+    .menu {
+      @include navigator;
+
+      a[href="/adressen"]:before {
+        @include inline-block;
+        text-decoration: none;
+        content: "\f15d";
+        margin: 0 10px 0 0;
+        font-family: "FontAwesome";
+      }
+
+      a[href$="kaart"]:before {
+        @include inline-block;
+        text-decoration: none;
+        content: "\f041";
+        margin: 0 10px 0 0;
+        font-family: "FontAwesome";
+      }
+    }
+  }
+}

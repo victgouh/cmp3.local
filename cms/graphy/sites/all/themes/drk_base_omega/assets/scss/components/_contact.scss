@@ -1,0 +1,69 @@
+.reference-service,
+.contact-service {
+  margin-bottom: 20px;
+}
+
+.contact {
+  background-color: map-get($colors, "second");
+  margin-bottom: 20px;
+
+  ul.openinghour {
+    padding: 0;
+
+    li {
+      list-style-type: none;
+
+      a {
+        color: $white;
+      }
+    }
+  }
+
+  .contact-wrapper {
+    position: relative;
+    height: 100%;
+    padding: 0 0 60px;
+
+    @include breakpoint(map-get($breakpoints, "mobile")) {
+      padding: 0;
+    }
+
+    .global-info {
+      .field-label {
+        float: left;
+        margin: 0 5px;
+      }
+    }
+
+    .container {
+      @include typo($body_font_family, $font_size_small, $font_size_small, $white);
+      padding: 25px 25px 0;
+
+      &.container-mid {
+        padding: 10px 25px;
+      }
+    }
+
+    h3 {
+      float: none !important;
+    }
+  }
+
+  .title {
+    font-family: font-family-stack($base_font_family, "medium", $base_font_stack);
+    margin: 0;
+
+    a {
+      color: $white;
+    }
+  }
+
+  .field-name-field-address_zip {
+    margin-right: .3em;
+  }
+
+  .field-name-field-address_zip,
+  .field-name-field-address_city {
+    @include inline-block;
+  }
+}

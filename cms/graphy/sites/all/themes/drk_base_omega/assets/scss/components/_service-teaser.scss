@@ -1,0 +1,70 @@
+.field--lp-services-teaser,
+.field--fc-spotlight-item,
+.field--services {
+  margin: 0 0 10px;
+
+  h3 {
+    position: relative;
+
+    a {
+      display: block;
+      background-color: mg($plus_list, item_bgc);
+      padding: mg($plus_list, item_padding);
+      text-decoration: none;
+      color: mg($plus_list, item_color);
+      font-family: $body_font_family;
+
+      &:hover {
+        background-color: mg($plus_list, item_bgc_hover);
+      }
+
+      &:after {
+        @include corner(absolute, "r");
+        content: "";
+        margin: mg($plus_list, item_arrow_margin);
+        @include rect(mg($plus_list, item_arrow_width), mg($plus_list, item_arrow_height));
+        @include background(image-url("svg/#{mg($plus_list, item_arrow_image)}.svg") no-repeat center center);
+
+        .no-svg & {
+          @include background(image-url("layout/#{mg($plus_list, item_arrow_image)}.png") no-repeat center center);
+        }
+      }
+    }
+  }
+
+  .field--lijstafbeelding {
+    a {
+      display: block;
+
+      img {
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .cta {
+    a {
+      display: block;
+    }
+  }
+
+  .field--url,
+  .field--body {
+    p,
+    a {
+      @include typo(mg($plus_list, item_p_ff), mg($plus_list, item_p_fsz), mg($plus_list, item_p_fsz), mg($plus_list, item_p_color));
+    }
+
+    p {
+      margin: 5px 0 10px;
+    }
+
+    a {
+      @include inline-block;
+
+      &:after {
+        content: " +";
+      }
+    }
+  }
+}

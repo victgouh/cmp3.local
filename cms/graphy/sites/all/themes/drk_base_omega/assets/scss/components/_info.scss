@@ -1,0 +1,77 @@
+.info {
+  @include typo($body_font_family, $font_size_small + 2, $font_size_small + 2, mg($info, color));
+  margin: mg($info, margin);
+
+  .day {
+    text-align: right;
+    margin-bottom: #{$med}px;
+
+    &.left {
+      text-align: left;
+    }
+  }
+
+  &.lined {
+    .day {
+      padding: 0 0 4px;
+      border-bottom: 2px solid map-get($colors, "second");
+      margin: 0;
+      font-family: font-family-stack($base_font_family, "regular", $base_font_stack);
+    }
+
+    .field--open-hours-highl-ref {
+      border-bottom: 1px solid rgba(map-get($colors, "first"), .5);
+    }
+  }
+
+  .field--open-hours-highl-ref {
+    padding: mg($info, open_hours_highl_ref_padding);
+
+    .title {
+      a {
+        font-family: mg($info, openinghour_title_ff);
+
+        @if mg($info, openinghour_title_a_td) == false {
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .hours-info {
+      .openinghour {
+        @if mg($info, openinghour_is_inlineblock) {
+          @include inline-block;
+
+          &.today {
+            margin: mg($info, openinghour_inlineblock_margin);
+          }
+        }
+      }
+    }
+
+
+    dl {
+      margin: #{$med}px 0;
+    }
+
+    dd,
+    dt {
+      @include inline-block;
+      vertical-align: top;
+    }
+
+    dt {
+      margin: 0;
+      width: span(mg($info, dt_width));
+    }
+
+    dd {
+      margin: 0;
+      width: span(mg($info, dd_width));
+    }
+  }
+}

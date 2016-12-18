@@ -1,0 +1,14 @@
+.entity {
+  text-align: mg($entity, position);
+
+  #logo img {
+    display: block;
+    max-width: 140px;
+    @include rect(mg($entity, width), mg($entity, height));
+  }
+
+  a {
+    @include inline-block;
+    margin: 0 0 22px;
+  }
+}

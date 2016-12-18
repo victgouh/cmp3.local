@@ -1,0 +1,62 @@
+.node--vereniging--full {
+  .field--lijstafbeelding {
+    img {
+      width: 100%;
+    }
+  }
+
+  .contact {
+    margin-bottom: 20px;
+    @include box-sizing(border-box);
+    @include typo($body_font_family, $font_size, $font_size, $white);
+    // padding: 25px;
+
+    p,
+    pre,
+    h2,
+    h3,
+    h4 {
+      color: $white;
+    }
+
+    .field-label,
+    .wrapper-field-e-mailadres,
+    .field--extra-informatie {
+      clear: both;
+    }
+
+    .contact-wrapper {
+      padding: 25px;
+      
+      h3 {
+        float: none !important;
+      }
+
+      .global-info .field-label {
+        margin-left: 0 !important;
+      }
+
+      .field-name-field-address_street,
+      .field-name-field-address_zip,
+      .field-name-field-address_city {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .map-info {
+    width: 100%;
+  }
+
+  @include breakpoint(map-get($breakpoints, "mobile")) {
+    .contact,
+    .map-info {
+      margin-bottom: 0;
+      @include span(6 of map-get($susy, columns));
+    }
+
+    .map-info {
+      @include last;
+    }
+  }
+}
