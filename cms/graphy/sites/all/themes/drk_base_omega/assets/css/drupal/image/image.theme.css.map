@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": ";;;;;;;AAQA,cAAe;EACb,KAAK,EAAE,IAAI;;EACX,OAAO,EAAE,aAAa;;;;AAExB,kBAAmB;EACjB,KAAK,EAAE,IAAI;;;AAEX,8BAAY;EACV,KAAK,EAAE,IAAI",
-"sources": ["../../../scss/drupal/image/image.theme.scss"],
-"names": [],
-"file": "image.theme.css"
-}

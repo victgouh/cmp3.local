@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": ";;;;AAOA,aAAc;EACZ,UAAU,EAAE,GAAG;EACf,aAAa,EAAE,GAAG;EAClB,OAAO,EAAE,GAAG;EACZ,gBAAgB,EAAE,IAAI;;;AAExB;;4BAE6B;;EAE3B,QAAQ,EAAE,KAAK;EACf,OAAO,EAAE,GAAG;EACZ,IAAI,EAAE,IAAI;;;EAEV,OAAO,EAAE,QAAQ;;EAEjB,KAAK,EAAE,IAAI;EACX,WAAW,EAAE,oCAAoC;EACjD,SAAS,EAAE,KAAK;EAChB,WAAW,EAAE,IAAI;;EAEjB,gBAAgB,EAAE,OAAO;ECgUzB,kBAAwC,ED/TjB,aAAa;EC+TpC,qBAAwC,EC9Sb,CAAuB;ED8SlD,aAAwC,ED/TjB,aAAa;;;AAEtC,0BAA2B;EACzB,eAAe,EAAE,SAAS",
-"sources": ["../../../scss/drupal/block/block.demo.scss","../../../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/_support.scss","../../../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_border-radius.scss"],
-"names": [],
-"file": "block.demo.css"
-}

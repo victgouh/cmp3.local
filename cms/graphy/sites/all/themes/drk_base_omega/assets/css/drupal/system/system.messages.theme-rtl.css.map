@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": ";;;;;AAMA,SAAU;EACR,OAAO,EAAE,mBAAmB;EAC5B,mBAAmB,EAAE,OAAO;;AAE5B,YAAG;EACD,MAAM,EAAE,SAAS",
-"sources": ["../../../scss/drupal/system/system.messages.theme-rtl.scss"],
-"names": [],
-"file": "system.messages.theme-rtl.css"
-}
